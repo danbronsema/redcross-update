@@ -1,0 +1,2 @@
+permalink: articles/:title
+relative_permalinks: false

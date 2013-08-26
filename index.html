@@ -1,0 +1,65 @@
+---
+layout: layout
+---
+
+ <div class='masthead-wrapper'>
+    <div class='masthead'>
+      <a href="http://www.redcross.org.au" class='logo' title="Visit the Australian Red Cross homepage" ><img src="img/redcross_logo.png" width='200' ></a>
+      <h1><span>Update</span><br>Working together to support asylum seekers</h1>
+      <p class="issue">Issue: June 2013</p>
+      <a href="#" class="btn" id="contents-btn">View Contents</a>
+      <div class='cf'></div>
+    </div>
+    <div class='contents'>
+      <ul id='contents-list'>
+      	{% for post in site.posts %}
+      		<li><a href='{{ post.url | remove_first: '/' }}'>{{ post.title }}</a></li>
+   		{% endfor %}   		
+      </ul>
+    </div>
+  </div>
+
+  <div id='articles'>
+	{% for post in site.posts %}
+		<a class='article fb' href='{{ post.url | remove_first: '/' }}'>
+			{% if post.image %}
+			<span class='thumbnail'>
+				<img src='assets/content/{{ post.image }}'>
+			</span>
+			{% endif %}
+			<span class='intro'>
+				<h2>{{ post.title }}</h2>
+				<p>{{ post.intro }}</p>
+			</span>
+		</a>
+	{% endfor %}
+<!--   <a href="assets/extras" class='fb article vert'>
+    <img src='assets/content/vert_full2.jpg' width='320' height='305' alt='Red Cross Calling'>
+  </a>    
+ -->
+<!--   <a href='http://www.redcross.org.au/shops' class='article vert' target='_blank'><img src='assets/content/vert_full.jpg' width='320' height='173' alt='Red Cross Shops'></a>    
+ -->
+  </div>
+
+
+  <div class='footer'>
+    <div class='wrap cf'>
+      <div class="btn-group cf">
+      </div>
+
+      <div class="comments">
+        <p><b>Let us know what you think</b><br>
+        We welcome your comments and suggestions. Contact the editorial team at <a href="mailto:publications@redcross.org.au">publications@redcross.org.au</a></p>
+      </div>
+      <div class="editor">
+        <p><b>Editor:</b> Phil Brown</br>
+        <b>Sub-Editor:</b> Carmel Roma</p>
+      </div>
+      <div class="image">
+        <p><b>Cover Image</b><br>Cole Bennetts</p>
+      </div>
+      <div class="f-logo">
+        <a href='http://www.redcross.org.au'><img src='img/redcross_logo.png' alt='Australian Red Cross'></a>
+      </div>
+    </div>
+  </div>

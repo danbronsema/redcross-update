@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset=UTF-8>
+  <meta name=viewport content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+
+  <title>Update - Australian Red Cross</title>
+  
+  <link rel=stylesheet href='css/inuit.css'>
+  <link rel=stylesheet href='css/style.css'>
+  <link rel=stylesheet href='css/fancybox.css'>
+
+  <!-- Favicons and the like (avoid using transparent .png) -->
+  <link rel="shortcut icon" href=icon.png>
+
+</head>
+<body>
+  <div class='wrapper'>
+  
+  
+ {{ content }}
+
+</div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+  <script src='js/jquery.isotope.js'></script>
+  <script src='js/jquery.fancybox.js'></script>
+  <script src='js/overthrow.js'></script>
+
+<script type="text/javascript">
+  $(function(){
+
+    var $container = $('#articles');
+    var $contents = $('div.contents');
+    var $contentsBtn = $('#contents-btn');
+
+    var resizer = function(){
+      if ($('body').width() > 760) {
+        $contents.show();
+        $container.isotope({ 
+          itemSelector: '.article', 
+          columnWidth: 320 
+        });
+      } else if ($('body').width() < 760 && $('body').width() > 519 ) {
+        $contents.show();
+        $container.isotope({ 
+          itemSelector: '.article', 
+          columnWidth: 364 
+        });       
+      }
+    };
+
+    $contentsBtn.on('click', function(e){
+      $contents.slideToggle('slow');
+    });
+
+    if ($('body').width() < 749) {
+      $(".fb, .contents a").fancybox({
+        type: 'ajax',
+        fixed: false,
+        height: '100%',
+        margin: [0,0,0,0],
+        padding: [0,0,0,0],
+        autoSize: false,
+        topRatio: 0,
+        scrolling: 'yes',
+        closeClick: true,
+        tpl : {
+          closeBtn : '<a title="Close" class="fancybox-item fancybox-close" style="top:10px;" href="javascript:;">Close</a>'
+        }
+      });
+    } else {
+      $(".fb, .contents a").fancybox({
+        type: 'ajax',
+        autoSize: false,
+        fixed: false,
+        height: '98%',
+        padding: [0,0,0,0],
+        maxWidth: 700,
+        width:'90%',
+        topRatio:0,
+        tpl : {
+          closeBtn : '<a title="Close" class="fancybox-item fancybox-close" href="javascript:;">Close</a>'
+        }
+      });
+    }
+    
+    $container.imagesLoaded( function(){
+      resizer();
+    });
+    $(window).smartresize(function(){
+      resizer();
+    });
+
+    
+
+  });
+</script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2517012-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</body>
+</html>
